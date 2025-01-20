@@ -1,10 +1,82 @@
-import React from 'react'
+import React from 'react';
 import styles from './NavStyles.module.css';
+import sun from '../../assets/sun.svg';
+import moon from '../../assets/moon.svg';
+import { useTheme } from '../../common/ThemeContext';
 
 function Nav() {
-    return <section id='nav' className={styles.container}>
-    </section>
+    const { theme, toggleTheme } = useTheme();
+    const themeIcon = theme === 'light' ? sun : moon;
+
+    return (
+        <nav id="nav" className={styles.container}>
+            <div className={styles.navContent}>
+                <div className={styles.images}>
+                    {/* Logo */}
+                    <div className={styles.logo}>
+                        <a href="#">
+                            <img src="/public/MK.ico" alt="Logo" />
+                        </a>
+                    </div>
+
+                    <div className={styles.colorModeContainer}>
+                            <img 
+                                className={styles.colorMode} 
+                                src={themeIcon} 
+                                alt="Color Mode Icon" 
+                                onClick={toggleTheme}
+                            />
+                    </div>
+                </div>
+
+                <div className={styles.text}>
+                    {/* Menu */}
+                    <ul className={styles.menu}>
+                        <li className={styles.menuItem}>
+                            <a href="index.html">O mnie</a>
+                            <ul className={styles.submenu}>
+                                <li><a href="#">Profil osobisty</a></li>
+                                <ul>
+                                    <li><a href="#kim-jestem">Kim jestem?</a></li>
+                                    <li><a href="#co-mnie-wyroznia">Co mnie wyróżnia?</a></li>
+                                    <li><a href="#dlaczego-to-robie">Dlaczego to robię?</a></li>
+                                </ul>
+                                    <li><a href="zainteresowania.html">Moje zainteresowania</a></li>
+                                    <li><a href="#">Moja ścieżka kariery</a></li>
+                            </ul>
+                        </li>
+                        <li className={styles.menuItem}>
+                            <a href="#">Kariera</a>
+                            <ul className={styles.submenu}>
+                                <li><a href="#">Portfolio w liczbach</a></li>
+                                <li><a href="#">Pracuję z...</a></li>
+                                <ul>
+                                    <li><a href="#">HTML, CSS, JavaScript</a></li>
+                                    <li><a href="#">C#, C++</a></li>
+                                    <li><a href="#">Python</a></li>
+                                    <li><a href="#">MySQL</a></li>
+                                    <li><a href="#">Linux</a></li>
+                                </ul>
+                                <li><a href="#">Certyfikaty</a></li>
+                            </ul>
+                        </li>
+                        <li className={styles.menuItem}>
+                            <a href="#">Projekty</a>
+                        </li>
+                        <li className={styles.menuItem}>
+                            <a href="#">Kontakt</a>
+                            <ul className={styles.submenu}>
+                                <li><a href="#">Dane kontaktowe</a></li>
+                                <li><a href="#">LinkedIn</a></li>
+                                <li><a href="#">E-mail</a></li>
+                                <li><a href="#">Adres pocztowy</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    );
 }
 
-
-export default Nav
+export default Nav;

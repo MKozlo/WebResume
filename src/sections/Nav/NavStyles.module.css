@@ -1,0 +1,122 @@
+/* Styl dla logo */
+.logo img {
+    max-width: 50px;
+    height: auto;
+    display: inline-block;
+}
+
+/* Styl dla całej nawigacji */
+.container {
+    background-color: var(--nav-bg-color); /* Dynamiczne tło zależne od motywu */   
+    color: var(--nav-text-color); /* Dynamiczny kolor tekstu zależny od motywu */
+    width: 100%; /* Rozciągnięcie na pełną szerokość */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px; /* Możesz dostosować padding */
+    position: fixed; /* Przytwierdza nav do górnej części ekranu */
+    top: 0; /* Przyklejenie na górze */
+    left: 0; /* Rozciągnięcie od lewej */
+    z-index: 1000; /* Zapobiega zakryciu przez inne elementy */
+}
+
+.navContent {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Opcjonalnie dodaj szerokość dla całego elementu `nav` */
+#nav {
+    width: 100%; /* Rozciągnięcie nav na całą szerokość ekranu */
+}
+
+/* Styl głównego menu */
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Poziome ułożenie menu */
+    flex-grow: 1; /* Rozciągnięcie, aby menu zajmowało resztę miejsca */
+    justify-content: flex-end; /* Wyrównanie menu do prawej strony */
+}
+
+/* Upewnij się, że logo nie rozciąga się */
+.logo img {
+    max-width: 50px;
+    height: auto;
+    display: inline-block;
+}
+
+.images {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+.text {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    text-align: right;
+    margin-left: auto;
+}
+
+.menuItem {
+    position: relative; /* Konieczne do wyświetlania podmenu */
+    margin-right: 20px;
+}
+
+.menuItem a {
+    text-decoration: none;
+    color: var(--nav-text-color); /* Dynamiczny kolor linków zależny od motywu */
+    font-size: 16px;
+    padding: 10px 15px;
+    display: block; /* Aby padding obejmował cały link */
+    transition: background-color 0.3s;
+}
+
+.menuItem a:hover {
+    background-color: #f0f0f0; /* Podświetlenie linku */
+    border-radius: 5px;
+}
+
+/* Styl podmenu */
+.submenu {
+    list-style: none;
+    position: absolute; /* Podmenu będzie wyświetlane względem rodzica */
+    top: 100%; /* Pojawia się poniżej elementu nadrzędnego */
+    left: 0;
+    background-color: #fff;
+    padding: 10px 0;
+    margin: 0;
+    display: none; /* Domyślnie ukryte */
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Dodanie cienia */
+    z-index: 10; /* Zapobiega nakładaniu się innych elementów */
+}
+
+.submenu li {
+    margin: 0;
+}
+
+.submenu a {
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+    padding: 8px 15px;
+    display: block;
+}
+
+.submenu a:hover {
+    background-color: #f0f0f0; /* Podświetlenie elementów podmenu */
+    border-radius: 5px;
+}
+
+/* Pokazanie podmenu na hover */
+.menuItem:hover .submenu {
+    display: block; /* Wyświetla podmenu, gdy najedziemy na element */
+}
+
+/* Dodatkowe ulepszenia */
+.menuItem:last-child {
+    margin-right: 0; /* Brak marginesu dla ostatniego elementu */
+}

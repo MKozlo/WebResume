@@ -2,34 +2,83 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 20px;
+  align-items: center; /* Wyśrodkowanie poziome */
+  gap: 40px; /* Większy odstęp między elementami */
   text-align: center;
-  height: 100dvh;
-  min-height: 500px;
+  margin-top: 10rem;
+  min-height: 200px;
+}
 
-  .profile{
-    max-width: 200px;
-  }
+.profileWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  padding: 80px; /* Zwiększenie paddingu */
+  border-radius: 15px; /* Zaokrąglone rogi */
+  background-color: var(--profile-wrapper-bg-color); /* Tło zdefiniowane dla motywu */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Lekki cień */
+}
 
-  span {
-   display: flex;
-   gap: 25px;
-   justify-content: center;
+.imageContainer {
+  width: 250px; /* Zwiększona szerokość zdjęcia */
+  height: auto; /* Zwiększona wysokość zdjęcia */
+  border-radius: 10%; /* Okrągłe zdjęcie */
+  overflow: hidden; /* Ukrycie nadmiaru */
+  border: 3px solid #ddd; /* Obramowanie zdjęcia */
+}
 
-   a {
-    margin: 0;
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Dopasowanie zdjęcia do okręgu */
+}
 
-      img {
-        width: 30px;
-      }
-    }
-  }
+.profileInfo h1 {
+  font-size: 2rem; /* Większy rozmiar czcionki */
+  font-weight: 600;
+}
 
-  a {
-    width: fit-content;
-    align-self: center;
-  }
+.profileInfo span {
+  display: flex;
+  gap: 25px; /* Większy odstęp między ikonami */
+  justify-content: center;
+}
 
+.socialLink {
+  text-decoration: none;
+  display: inline-block;
+}
+
+.socialIcon {
+  font-size: 30px; /* Większe ikony */
+  transition: color 0.3s ease;
+}
+
+.descriptionContainer {
+  max-width: 800px;
+  margin-top: 40px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Wyśrodkowanie pionowe zawartości */
+  align-items: center; /* Wyśrodkowanie poziome zawartości */
+  gap: 30px; /* Większy odstęp między elementami */
+}
+
+span {
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  margin: 25px;
+}
+
+a {
+  width: fit-content;
+  align-self: center;
 }
 
 .colorModeContainer {
@@ -46,8 +95,20 @@
   cursor: pointer;
 }
 
-.info {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.description {
+  min-width: 40ch;
+  max-width: 65ch;
+}
+
+@media(width >= 800px) {
+  .container {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+    .profile {
+      max-width: 350px;
+      width: 350px;
+    }
+  }
 }

@@ -1,4 +1,7 @@
 :root {
+  --nav-bg-color: #eaeaea; /* Tło paska nawigacyjnego dla jasnego motywu */
+  --nav-text-color: #000; /* Kolor tekstu dla jasnego motywu */
+
   --background-color: #fff;
   --btn-color: #0987f2;
   --btn-text-color: #fff;
@@ -6,9 +9,14 @@
   --text-color: #222;
   --form-text-color: #555;
   --footer-text-color: #888;
+  --profile-wrapper-bg-color: #f1f1f1; /* Jasne tło */
+
 }
 
 [data-theme='dark'] {
+  --nav-bg-color: #333; /* Tło paska nawigacyjnego dla ciemnego motywu */
+  --nav-text-color: #fff; /* Kolor tekstu dla ciemnego motywu */
+
   --background-color: #222;
   --btn-color: #fff;
   --btn-text-color: #222;
@@ -16,6 +24,7 @@
   --text-color: #fff;
   --form-text-color: #fff;
   --footer-text-color: #bbb;
+  --profile-wrapper-bg-color: #333; /* Ciemniejsze tło */
 }
 
 body {
@@ -28,7 +37,6 @@ body {
 #root {
   display: flex;
   flex-direction: column;
-  gap: 60px;
 }
 
 h1,
@@ -40,15 +48,15 @@ p {
   padding: 0;
 }
 
-h1 {
+h1, p {
   font-family: 'Lato', monospace;
   font-size: 32px;
 }
-
-h2, 
-h3, 
-p {
+ 
+h3 {
   font-family: 'Gloria Hallelujah', monospace;
+  color: #f1594c;
+  margin-bottom: 20px;
 }
 
 h2,
@@ -56,9 +64,13 @@ h3 {
   font-size: 20px;
 }
 
+h2 {
+  font-family: 'Gloria Hallelujah', monospace;
+}
+
 p {
   font-size: 16px;
-  font-weight: 300;
+  line-height: 1.8;
 }
 
 .sectionTitle {

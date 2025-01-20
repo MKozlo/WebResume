@@ -1,20 +1,15 @@
 import './App.css'
-import Profile from './sections/Profile/Profile'
 import Nav from './sections/Nav/Nav'
+import Profile from './sections/Profile/Profile'
+import Strengths from './sections/Profile/Strengths'
 import '@fortawesome/fontawesome-free/css/all.min.css';
-
-function Nav() {
-  return (
-    <>
-      <Nav/>
-    </>
-  )
-}
 
 function App() {
   return (
     <>
+      <Nav/>
       <Profile/>
+      <Strengths/>
     </>
   )
 }
