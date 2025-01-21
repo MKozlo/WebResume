@@ -121,5 +121,6 @@ a {
   .descriptionContainer h2.hello {
     margin-bottom: 100px; /* Opcjonalnie zmniejsza odstęp pod nagłówkiem */
     background-color: var(--profile-wrapper-bg-color);
+    font-size: 30px;
   }
 }

@@ -1,17 +1,45 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './NavStyles.module.css';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
 import { useTheme } from '../../common/ThemeContext';
+import { Link } from 'react-router-dom';
 
 function Nav() {
     const { theme, toggleTheme } = useTheme();
     const themeIcon = theme === 'light' ? sun : moon;
+
+    // Stan do obsługi rozwijanego menu
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+    const scrollToSection = (sectionId) => {
+        const section = document.getElementById(sectionId);
+        if (section) {
+            // Oblicz wysokość nagłówka
+            const headerOffset = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 0;
+            const elementPosition = section.offsetTop;  // Zmieniamy z getBoundingClientRect().top na offsetTop
+            const offsetPosition = elementPosition - headerOffset;
+    
+            // Sprawdzamy, czy jesteśmy już w tej sekcji
+            const isInSection = window.pageYOffset >= offsetPosition && window.pageYOffset < offsetPosition + section.offsetHeight;
+    
+            // Jeśli nie jesteśmy w tej sekcji, wykonujemy przewijanie
+            if (!isInSection) {
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+    
+            
+
     return (
         <nav id="nav" className={styles.container}>
             <div className={styles.navContent}>
+                {/* Logo */}
                 <div className={styles.images}>
-                    {/* Logo */}
                     <div className={styles.logo}>
                         <a href="#">
                             <img src="/public/MK.ico" alt="Logo" />
@@ -19,20 +47,30 @@ function Nav() {
                     </div>
                 </div>
 
-                <div className={styles.text}>
-                    {/* Menu */}
+                {/* Hamburger menu (tylko dla małych ekranów) */}
+                <button
+                    className={styles.hamburger}
+                    onClick={toggleMenu}
+                    aria-label="Toggle menu"
+                >
+                    ☰ {/* Ikona hamburgera */}
+                </button>
+
+                {/* Menu */}
+                <div className={`${styles.text} ${isMenuOpen ? styles.menuOpen : ''}`}>
                     <ul className={styles.menu}>
                         <li className={styles.menuItem}>
                             <a href="index.html">O mnie</a>
                             <ul className={styles.submenu}>
                                 <li><a href="#">Profil osobisty</a></li>
                                 <ul>
-                                    <li><a id="kim-jestem" href="#kim-jestem">Kim jestem?</a></li>
-                                    <li><a href="#co-mnie-wyroznia">Co mnie wyróżnia?</a></li>
-                                    <li><a href="#dlaczego-to-robie">Dlaczego to robię?</a></li>
+                                <li><a href="#" onClick={() => scrollToSection("kim-jestem")}>Kim jestem?</a></li>
+                                <li><a href="#" onClick={() => scrollToSection("co-mnie-wyroznia")}>Co mnie wyróżnia?</a></li>
+                                <li><a href="#" onClick={() => scrollToSection("dlaczego-to-robie")}>Dlaczego to robię?</a></li>
                                 </ul>
                                 <li><a href="wyksztalcenie.html">Wykształcenie</a></li>
-                                <li><a href="zainteresowania.html">Moje zainteresowania</a></li>                                </ul>
+                                <li><a href="zainteresowania.html">Moje zainteresowania</a></li>
+                            </ul>
                         </li>
                         <li className={styles.menuItem}>
                             <a href="#">Kariera</a>
@@ -63,14 +101,16 @@ function Nav() {
                             </ul>
                         </li>
                     </ul>
-                    </div>
-                    <div className={styles.colorModeContainer}>
-                            <img 
-                                className={styles.colorMode} 
-                                src={themeIcon} 
-                                alt="Color Mode Icon" 
-                                onClick={toggleTheme}
-                            />
+                </div>
+
+                {/* Przełącznik trybu kolorów */}
+                <div className={styles.colorModeContainer}>
+                    <img
+                        className={styles.colorMode}
+                        src={themeIcon}
+                        alt="Color Mode Icon"
+                        onClick={toggleTheme}
+                    />
                 </div>
             </div>
         </nav>
@@ -78,4 +118,3 @@ function Nav() {
 }
 
 export default Nav;
-

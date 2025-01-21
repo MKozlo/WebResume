@@ -2,6 +2,8 @@
 - logo need to be white at dark mode,
 - justify items in nav
 - make moon the same size as sun
+- at dark mode - highlights are valid
+- valid scrolling when clicked at section at first page
 
 
 # React + Vite

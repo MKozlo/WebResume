@@ -58,11 +58,13 @@ function Profile() {
       {/* Sekcja Kim jestem? */}
       <div className={styles.descriptionContainer}>
         <h2 className={styles.hello}>Witaj, dobrze Cię widzieć!</h2>
-        <h3>Kim jestem?</h3>
-        <p className={styles.description}>
-          <b>Jestem studentką Informatyki</b> na Uniwersytecie Kazimierza Wielkiego w Bydgoszczy, specjalizującą się w tworzeniu aplikacji i stron internetowych. <br /><br />
-          Aktywnie rozwijam swoje umiejętności w obszarze web developmentu i <b>poszukuję możliwości dalszego rozwoju w branży IT</b>.
-        </p>
+        <section id="kim-jestem">
+          <h3>Kim jestem?</h3>
+          <p className={styles.description}>
+            <b>Jestem studentką Informatyki</b> na Uniwersytecie Kazimierza Wielkiego w Bydgoszczy, specjalizującą się w tworzeniu aplikacji i stron internetowych. <br /><br />
+            Aktywnie rozwijam swoje umiejętności w obszarze web developmentu i <b>poszukuję możliwości dalszego rozwoju w branży IT</b>.
+          </p>
+        </section>
       </div>
     </section>
   );

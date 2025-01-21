@@ -164,34 +164,22 @@
 }
 
 /* Pojawia się tylko na małych ekranach */
+/* Ukryj menu główne na małych ekranach */
 @media (max-width: 768px) {
-    .hamburger {
-        display: block; /* Widoczny na małych ekranach */
-    }
-
-    /* Ukryj menu na małych ekranach, gdy zamknięte */
-    .menuContainer {
-        display: none;
-        flex-direction: row;
+    .menu {
+        display: none; /* Ukryj menu domyślnie */
+        flex-direction: column;
+        width: 100%;
         background-color: var(--nav-bg-color);
         position: absolute;
-        top: 60px; /* Umieszczone poniżej nawigacji */
+        top: 60px;
         left: 0;
-        width: 100%; /* Pełna szerokość */
-        z-index: 1000; /* Powierzchnia wyżej */
+        z-index: 1000;
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     }
 
-    /* Pokaż menu, gdy otwarte */
-    .menuContainer.open {
-        display: flex; /* Menu rozwinięte */
-    }
-
-    .menu {
-        flex-direction: row;
-        width: 100%;
-        margin: 0;
-        padding: 0;
+    .menu.open {
+        display: flex; /* Pokaż menu, gdy otwarte */
     }
 
     .menuItem {
@@ -199,17 +187,38 @@
         text-align: center;
     }
 
+    /* Ukrycie określonych elementów menu na małych ekranach */
+    .menuItem.hidden {
+        display: none; /* Całkowicie ukryte */
+    }
+
     .submenu {
-        position: static; /* Menu wewnętrzne */
+        position: static;
         background: transparent;
         box-shadow: none;
     }
 
     .navContent {
-        display: flex;
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        align-items: center;
+    }
+}
+
+/* Hamburger menu - styl widoczny na małych ekranach */
+.hamburger {
+    display: none;
+    font-size: 40px;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: var(--nav-text-color);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
     }
 }
