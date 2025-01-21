@@ -22,7 +22,7 @@ function Profile() {
         {/* Nazwisko i linki */}
         <div className={styles.profileInfo}>
           <h1>Magdalena Kozłowska</h1>
-          <span>
+          <div className={styles.socialIcons}>
             <a href="https://www.linkedin.com/in/mkozlo/" target="_blank" className={styles.socialLink}>
               <i className={`fab fa-linkedin socialIcon`} style={{ color: theme === 'light' ? 'black' : 'white' }}></i>
             </a>
@@ -51,13 +51,13 @@ function Profile() {
             <a href="https://github.com/MKozlo" target="_blank">
               <i className="fab fa-github socialIcon" style={{ color: theme === 'light' ? 'black' : 'white' }}></i>
             </a>
-          </span>
-        </div>
+            </div>
+          </div>
       </div>
 
       {/* Sekcja Kim jestem? */}
       <div className={styles.descriptionContainer}>
-        <h2 className={styles.powitanie}>Witaj, dobrze Cię widzieć!</h2>
+        <h2 className={styles.hello}>Witaj, dobrze Cię widzieć!</h2>
         <h3>Kim jestem?</h3>
         <p className={styles.description}>
           <b>Jestem studentką Informatyki</b> na Uniwersytecie Kazimierza Wielkiego w Bydgoszczy, specjalizującą się w tworzeniu aplikacji i stron internetowych. <br /><br />

@@ -11,18 +11,22 @@
     color: var(--nav-text-color); /* Dynamiczny kolor tekstu zależny od motywu */
     width: 100%; /* Rozciągnięcie na pełną szerokość */
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Rozkłada elementy po całej szerokości */
     align-items: center;
-    padding: 10px 20px; /* Możesz dostosować padding */
     position: fixed; /* Przytwierdza nav do górnej części ekranu */
     top: 0; /* Przyklejenie na górze */
     left: 0; /* Rozciągnięcie od lewej */
     z-index: 1000; /* Zapobiega zakryciu przez inne elementy */
+    padding: 10px;
 }
 
+/* Kontener zawartości nawigacji */
 .navContent {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap; /* Pozwala na łamanie linii, gdy brakuje miejsca */
+    width: 100%; /* Rozciąga zawartość na pełną szerokość */
+    justify-content: space-between; /* Rozstawia elementy równomiernie */
 }
 
 /* Opcjonalnie dodaj szerokość dla całego elementu `nav` */
@@ -37,33 +41,30 @@
     padding: 0;
     display: flex; /* Poziome ułożenie menu */
     flex-grow: 1; /* Rozciągnięcie, aby menu zajmowało resztę miejsca */
-    justify-content: flex-end; /* Wyrównanie menu do prawej strony */
+    justify-content: space-around; /* Równomierne rozmieszczenie elementów */
+    text-align: center;
+    flex-wrap: wrap; /* Łamanie w przypadku braku miejsca */
 }
 
-/* Upewnij się, że logo nie rozciąga się */
-.logo img {
-    max-width: 50px;
-    height: auto;
-    display: inline-block;
+/* Stylowanie logo */
+.logo img,
+.hamburger,
+.colorMode img {
+    width: 40px; /* Ustawienie szerokości logo */
+    height: 40px; /* Ustawienie wysokości logo */
+    object-fit: contain; /* Zachowuje proporcje */
 }
 
-.images {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
+.colorMode {
+    margin: 0 10px 0 10px;
 }
 
-.text {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    text-align: right;
-    margin-left: auto;
-}
-
+/* Styl menu */
 .menuItem {
     position: relative; /* Konieczne do wyświetlania podmenu */
-    margin-right: 20px;
+    margin: 0 10px; /* Dodanie odstępu między elementami */
+    flex: 1; /* Rozciąganie elementów na równą szerokość */
+    text-align: center; /* Wyśrodkowanie tekstu w elementach menu */
 }
 
 .menuItem a {
@@ -116,7 +117,99 @@
     display: block; /* Wyświetla podmenu, gdy najedziemy na element */
 }
 
-/* Dodatkowe ulepszenia */
-.menuItem:last-child {
-    margin-right: 0; /* Brak marginesu dla ostatniego elementu */
+/* Media queries do dostosowania dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Ustawienie elementów w kolumnie */
+        padding: 10px;
+    }
+
+    .navContent {
+        flex-direction: column; /* Rozmieszczenie elementów w pionie */
+        align-items: center;
+    }
+
+    .menu {
+        flex-direction: column; /* Menu w pionie */
+        width: 100%; /* Rozciągnięcie menu na całą szerokość */
+    }
+
+    .menuItem {
+        margin: 10px 0; /* Większe odstępy między elementami w pionie */
+        flex: none; /* Wyłączenie równego rozciągania */
+        text-align: center;
+    }
+
+    .logo{
+        margin: 10px;
+    }
+}
+
+.logo,
+.colorMode {
+    padding: 0 10px 10px 10px;
+}
+
+/* Ukryj hamburger na większych ekranach */
+.hamburger {
+    display: none; /* Domyślnie ukryty */
+    font-size: 40px;
+    margin-top: -30px;
+    margin-right: 10px;
+    background: none;
+    border: none;
+    color: var(--nav-text-color);
+    cursor: pointer;
+    z-index: 1001;
+}
+
+/* Pojawia się tylko na małych ekranach */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block; /* Widoczny na małych ekranach */
+    }
+
+    /* Ukryj menu na małych ekranach, gdy zamknięte */
+    .menuContainer {
+        display: none;
+        flex-direction: row;
+        background-color: var(--nav-bg-color);
+        position: absolute;
+        top: 60px; /* Umieszczone poniżej nawigacji */
+        left: 0;
+        width: 100%; /* Pełna szerokość */
+        z-index: 1000; /* Powierzchnia wyżej */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Pokaż menu, gdy otwarte */
+    .menuContainer.open {
+        display: flex; /* Menu rozwinięte */
+    }
+
+    .menu {
+        flex-direction: row;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menuItem {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .submenu {
+        position: static; /* Menu wewnętrzne */
+        background: transparent;
+        box-shadow: none;
+    }
+
+    .navContent {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        align-items: center;
+    }
 }

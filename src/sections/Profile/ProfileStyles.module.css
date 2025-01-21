@@ -23,7 +23,7 @@
 
 .imageContainer {
   width: 250px; /* Zwiększona szerokość zdjęcia */
-  height: auto; /* Zwiększona wysokość zdjęcia */
+  height: 250px; /* Zwiększona wysokość zdjęcia */
   border-radius: 10%; /* Okrągłe zdjęcie */
   overflow: hidden; /* Ukrycie nadmiaru */
   border: 3px solid #ddd; /* Obramowanie zdjęcia */
@@ -69,11 +69,12 @@
   gap: 30px; /* Większy odstęp między elementami */
 }
 
-span {
+.socialIcons {
   display: flex;
   gap: 25px;
   justify-content: center;
   margin: 25px;
+  font-size: 25px;
 }
 
 a {
@@ -100,6 +101,7 @@ a {
   max-width: 65ch;
 }
 
+
 @media(width >= 800px) {
   .container {
     flex-direction: row;
@@ -110,5 +112,14 @@ a {
       max-width: 350px;
       width: 350px;
     }
+  }
+
+  .descriptionContainer {
+    margin-top: -100px; /* Przesuwa tekst wyżej */
+  }
+
+  .descriptionContainer h2.hello {
+    margin-bottom: 100px; /* Opcjonalnie zmniejsza odstęp pod nagłówkiem */
+    background-color: var(--profile-wrapper-bg-color);
   }
 }
