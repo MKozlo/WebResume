@@ -1,0 +1,62 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 500px;
+    padding: 40px; /* Dodanie odstępów wewnętrznych */
+  }
+  
+  .text {
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column; /* Ustawienie elementów w kolumnie */
+    justify-content: flex-start; /* Wyrównanie elementów na początku */
+    align-items: center; /* Wyrównanie do środka */
+    margin: 20px 0; /* Zmniejszenie marginesu między sekcjami */
+    padding: 20px; /* Padding dla wewnętrznych elementów */
+    background-color: var(--profile-wrapper-bg-color); /* Tło zdefiniowane dla motywu */
+    border-radius: 10px; /* Zaokrąglone rogi */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Lekki cień dla lepszego efektu */
+  }
+
+  .text:hover {
+    background-color: var(--highlight-bg-color, #f0f0f0); /* Zmiana tła na jaśniejsze przy najechaniu */
+    color: var(--highlight-text-color, #000); /* Zmiana koloru tekstu */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Intensyfikacja cienia dla lepszego efektu */
+    transform: translateY(-5px); /* Delikatne podniesienie elementu przy najechaniu */
+  }
+  
+  .text h2:hover {
+    text-decoration: underline; /* Podkreślenie tekstu w nagłówkach i paragrafach */
+    color: var(--highlight-text-color, #ff6f61); /* Opcjonalna zmiana koloru tekstu na bardziej wyróżniający się */
+  }
+  
+  .option {
+    font-size: 1.0rem; /* Większy rozmiar czcionki dla nagłówków */
+    font-weight: 600; /* Pogrubienie nagłówka */
+    margin-bottom: 10px; /* Dodanie odstępu między tytułem a tekstem */
+  }
+  
+  .description {
+    font-size: 1rem; /* Standardowy rozmiar tekstu */
+    line-height: 1.6; /* Większa odległość między wierszami dla lepszej czytelności */
+    max-width: 800px; /* Maksymalna szerokość tekstu */
+    text-align: center; 
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 20px; /* Zmniejszenie paddingu na mniejszych ekranach */
+    }
+  
+    .option {
+      font-size: 1.2rem; /* Zmniejszenie rozmiaru czcionki na małych ekranach */
+    }
+  
+    .description {
+      font-size: 0.9rem; /* Zmniejszenie rozmiaru czcionki na małych ekranach */
+    }
+  }
+  
